@@ -1,5 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FlowForge.Api\FlowForge.Api.csproj" />
+    <ProjectReference Include="..\..\src\FlowForge.Application\FlowForge.Application.csproj" />
+    <ProjectReference Include="..\..\src\FlowForge.Data\FlowForge.Data.csproj" />
+    <ProjectReference Include="..\..\src\FlowForge.Infrastructure\FlowForge.Infrastructure.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

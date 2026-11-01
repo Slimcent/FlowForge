@@ -10,4 +10,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.12" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlowForge.Application\FlowForge.Application.csproj" />
+    <ProjectReference Include="..\FlowForge.Data\FlowForge.Data.csproj" />
+    <ProjectReference Include="..\FlowForge.Domain\FlowForge.Models.csproj" />
+    <ProjectReference Include="..\FlowForge.Infrastructure\FlowForge.Infrastructure.csproj" />
+    <ProjectReference Include="..\FlowForge.Interface\FlowForge.Interface.csproj" />
+  </ItemGroup>
 </Project>
