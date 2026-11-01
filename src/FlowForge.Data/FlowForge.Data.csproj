@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FlowForge.Domain\FlowForge.Models.csproj" />
+    <ProjectReference Include="..\FlowForge.Interface\FlowForge.Interface.csproj" />
+  </ItemGroup>
+
 </Project>
