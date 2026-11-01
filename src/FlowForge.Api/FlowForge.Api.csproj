@@ -8,6 +8,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlowForge.Application\FlowForge.Application.csproj" />
+    <ProjectReference Include="..\FlowForge.Data\FlowForge.Data.csproj" />
+    <ProjectReference Include="..\FlowForge.Domain\FlowForge.Models.csproj" />
+    <ProjectReference Include="..\FlowForge.Infrastructure\FlowForge.Infrastructure.csproj" />
+    <ProjectReference Include="..\FlowForge.Interface\FlowForge.Interface.csproj" />
   </ItemGroup>
 
 </Project>
