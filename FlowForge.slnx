@@ -1,3 +1,23 @@
 <Solution>
-  <Folder Name="/src/" />
+  <Folder Name="/docs/">
+    <File Path="architecture.md" />
+    <File Path="decisions.md" />
+  </Folder>
+  <Folder Name="/docs/development/">
+    <File Path="001-project-foundation.md" />
+    <File Path="CHANGELOG.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/FlowForge.Api/FlowForge.Api.csproj" />
+    <Project Path="src/FlowForge.Application/FlowForge.Application.csproj" />
+    <Project Path="src/FlowForge.Data/FlowForge.Data.csproj" />
+    <Project Path="src/FlowForge.Domain/FlowForge.Models.csproj" />
+    <Project Path="src/FlowForge.Infrastructure/FlowForge.Infrastructure.csproj" />
+    <Project Path="src/FlowForge.Interface/FlowForge.Interface.csproj" />
+    <Project Path="src/FlowForge.Worker/FlowForge.Worker.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FlowForge.IntegrationTests/FlowForge.IntegrationTests.csproj" />
+    <Project Path="tests/FlowForge.UnitTests/FlowForge.UnitTests.csproj" />
+  </Folder>
 </Solution>
