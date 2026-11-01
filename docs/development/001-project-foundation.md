@@ -89,3 +89,11 @@ Repository setup:
 - OpenAPI support
 - MIT license
 - Initial project documentation
+
+## Project References
+
+Project references were added between the FlowForge projects according to the dependency direction defined in `docs/architecture.md`.
+
+The API and Worker act as composition roots, while application logic remains independent from concrete persistence and infrastructure implementations.
+
+The complete solution was built after configuring the references to verify that the dependency graph is valid and contains no circular references.

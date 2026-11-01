@@ -208,41 +208,19 @@ A ----
 FlowForge handles failures based on where they occur.
 
 ```
-Application validation
-        ↓
-Result<T>
+Failure Handling
 
-Unexpected application error
-        ↓
-Global exception handling + logging
+FlowForge will handle failures according to their type.
 
-Database operation failure
-        ↓
-Rollback transaction
-
-Transient job failure
-        ↓
-Retry with backoff
-
-Permanent job failure
-        ↓
-Mark job as failed
-
-Repeated message failure
-        ↓
-Dead-letter queue
-
-Worker crash
-        ↓
-Recover or requeue job
-
-Duplicate message delivery
-        ↓
-Idempotency checks
-
-Database and message consistency
-        ↓
-Transactional outbox
+Application validation       -> Result<T>
+Unexpected application error -> Global exception handling and logging
+Database operation failure   -> Transaction rollback
+Transient job failure        -> Retry with backoff
+Permanent job failure        -> Mark job as failed
+Repeated message failure     -> Dead-letter queue
+Worker crash                 -> Recovery or requeue
+Duplicate message            -> Idempotency
+Database/message consistency -> Transactional outbox
 ```
 
 Dependent jobs only run when all required dependencies complete successfully.
@@ -255,3 +233,44 @@ Cancellation is tracked separately from failure.
 - `decisions.md` records important technical decisions and why they were made.
 - `development/` contains implementation notes for completed milestones or features.
 - `development/CHANGELOG.md` provides a concise history of notable project changes.
+
+## Project Dependencies
+
+The FlowForge projects follow a one-way dependency direction.
+
+```
+FlowForge.Models
+    └── no project references
+
+FlowForge.Interface
+    └── FlowForge.Models
+
+FlowForge.Application
+    ├── FlowForge.Interface
+    └── FlowForge.Models
+
+FlowForge.Data
+    ├── FlowForge.Interface
+    └── FlowForge.Models
+
+FlowForge.Infrastructure
+    └── FlowForge.Interface
+
+FlowForge.Api
+    ├── FlowForge.Application
+    ├── FlowForge.Interface
+    ├── FlowForge.Data
+    ├── FlowForge.Infrastructure
+    └── FlowForge.Models
+
+FlowForge.Worker
+    ├── FlowForge.Application
+    ├── FlowForge.Interface
+    ├── FlowForge.Data
+    ├── FlowForge.Infrastructure
+    └── FlowForge.Models
+```
+
+`FlowForge.Api` and `FlowForge.Worker` act as composition roots and can reference the concrete projects required to configure and run the application.
+
+Application projects do not depend on the API.
